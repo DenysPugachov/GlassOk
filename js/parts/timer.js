@@ -1,6 +1,6 @@
 function timer() {
     //launch reverseTimer
-    let dedline = "2019-12-24";
+    let dedline = "2020-12-24";
 
     function getTimerRemaining(endTime) {
         let diff = Date.parse(endTime) - Date.parse(new Date()),

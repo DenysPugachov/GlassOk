@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", function () {
     "use strict";
 
     let tab = document.querySelectorAll(".info-header-tab"),
@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", function() {
     }
 
     //add Evets for every Tabs
-    info.addEventListener("mouseover", function(e) {
+    info.addEventListener("mouseover", function (e) {
         let target = e.target;
         if (target && target.classList.contains("info-header-tab")) {
             for (let i = 0; i < tab.length; i++) {
@@ -42,7 +42,7 @@ window.addEventListener("DOMContentLoaded", function() {
     });
 
     //launch reverseTimer
-    let dedline = "2019-12-24";
+    let dedline = "2020-09-14";
 
     function getTimerRemaining(endTime) {
         let diff = Date.parse(endTime) - Date.parse(new Date()),
@@ -113,25 +113,25 @@ window.addEventListener("DOMContentLoaded", function() {
 
     //fucnction send form to PHP sever
     function sendFormData(formElement) {
-        formElement.addEventListener("submit", function(e) {
+        formElement.addEventListener("submit", function (e) {
             e.preventDefault(); //prevent default sending requerst
             formElement.appendChild(statusMessage);
 
             let formData = new FormData(formElement),
                 obj = {};
 
-            formData.forEach(function(value, key) {
+            formData.forEach(function (value, key) {
                 obj[key] = value;
             });
             let jsonData = JSON.stringify(obj);
 
             function postData(data) {
-                return new Promise(function(resolve, reject) {
+                return new Promise(function (resolve, reject) {
                     let request = new XMLHttpRequest();
                     request.open("POST", "server.php");
                     request.setRequestHeader("Content-type", "application/json; charset=utf-8");
 
-                    request.onreadystatechange = function() {
+                    request.onreadystatechange = function () {
                         if (request.readyState < 4) {
                             resolve();
                         } else if (request.readyState === 4) {
@@ -205,7 +205,7 @@ window.addEventListener("DOMContentLoaded", function() {
     next.addEventListener("click", () => plusSlides(1));
 
     //use dots to change slied through delegation
-    dotsWrap.addEventListener("click", function(event) {
+    dotsWrap.addEventListener("click", function (event) {
         for (let i = 0; i < dots.length + 1; i++) {
             if (event.target.classList.contains("dot") && event.target == dots[i - 1]) {
                 currentSlide(i);
@@ -225,19 +225,19 @@ window.addEventListener("DOMContentLoaded", function() {
 
     totalValue.innerHTML = 0;
 
-    persons.addEventListener("input", function() {
+    persons.addEventListener("input", function () {
         personsSum = +this.value;
         total = (daysSum + personsSum) * 4000;
         counterTotal(total);
     });
 
-    restDays.addEventListener("input", function() {
+    restDays.addEventListener("input", function () {
         daysSum = +this.value;
         total = (daysSum + personsSum) * 4000;
         counterTotal(total);
     });
 
-    place.addEventListener("change", function() {
+    place.addEventListener("change", function () {
         if (restDays.value == "" || persons.value == "") {
             totalValue.innerHTML = 0;
         } else {
