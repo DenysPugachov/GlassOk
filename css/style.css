@@ -235,7 +235,8 @@ header ul li:before {
 
 .content .info-tabcontent .description,
 .content .info-tabcontent .photo {
-    width: 50%;
+    /* width: 50%; */
+    width: 100%;
 }
 
 .content .info-tabcontent .description-title {
